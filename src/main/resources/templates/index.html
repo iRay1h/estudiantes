@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Estudiantes</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:40px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+border:1px solid black;
+padding:10px;
+text-align:center;
+}
+
+a{
+text-decoration:none;
+padding:5px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Lista de estudiantes</h1>
+
+<a th:href="@{/students/new}">
+Crear estudiante
+</a>
+
+<br><br>
+
+<table>
+
+<thead>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Edad</th>
+<th>Correo</th>
+<th>Carrera</th>
+<th>Acciones</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr th:each="student : ${students}">
+
+<td th:text="${student.id}"></td>
+<td th:text="${student.name}"></td>
+<td th:text="${student.age}"></td>
+<td th:text="${student.email}"></td>
+<td th:text="${student.career}"></td>
+
+<td>
+
+<a th:href="@{/students/edit/{id}(id=${student.id})}">
+Editar
+</a>
+
+<a th:href="@{/students/delete/{id}(id=${student.id})}">
+Eliminar
+</a>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</body>
+</html>

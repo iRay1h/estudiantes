@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Editar</title>
+</head>
+<body>
+
+<h1>Editar estudiante</h1>
+
+<form th:action="@{/students/update/{id}(id=${student.id})}" method="post">
+
+<input type="text"
+name="name"
+th:value="${student.name}">
+
+<br><br>
+
+<input type="number"
+name="age"
+th:value="${student.age}">
+
+<br><br>
+
+<input type="email"
+name="email"
+th:value="${student.email}">
+
+<br><br>
+
+<input type="text"
+name="career"
+th:value="${student.career}">
+
+<br><br>
+
+<button type="submit">
+Actualizar
+</button>
+
+</form>
+
+</body>
+</html>
